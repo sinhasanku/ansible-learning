@@ -1,0 +1,12 @@
+--- # sample command module
+- hosts: appserver
+  user: ec2-user
+  connection: ssh
+  become: true
+  gather_facts: no
+
+  tasks:
+    - name: Check for python packages
+      command: /home/ec2-user/etsting/test.sh
+      args:
+        chdir: /home/ec2-user/etsting

@@ -1,0 +1,10 @@
+--- # apt module example
+- hosts: aptserver
+  user: ec2-user
+  connection: ssh
+  become: true
+  gather_facts: no
+  tasks:
+    - name: Install Apache web server
+      apt: update_cache=yes
+

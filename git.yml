@@ -1,0 +1,9 @@
+--- #Sample git module
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: checking out a git repo on the remote server
+      git: repo=https://github.com/sinhasanku/jenkins-course.git dest=/home/ec2-user/gitrepo 

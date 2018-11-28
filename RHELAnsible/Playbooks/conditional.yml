@@ -1,0 +1,12 @@
+---
+- hosts: apacheweb
+  become: yes
+  tasks:
+    - name: create user
+      user:
+        name: "{{item}}"
+      with_items:
+        - sas
+        - dad
+        - faf
+       

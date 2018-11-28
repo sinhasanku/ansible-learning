@@ -1,0 +1,5 @@
+---
+- hosts: apacheweb
+  become: true
+  roles:
+    - php-webserver

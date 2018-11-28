@@ -1,0 +1,16 @@
+--- # promt example
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  vars:
+    playbook_version: 0.2b
+  vars_prompt:
+    - name: pkgtoinstall
+      prompt: Install which package?
+      default: telnet
+      private: no
+  tasks:
+    - name: Install the indicated package
+      yum: pkg= {{pkgtoinstall}} state=latest

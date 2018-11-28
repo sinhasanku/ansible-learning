@@ -1,0 +1,11 @@
+--- # stat module example
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - stat: path=/home/ec2-user/abc
+      register: p
+    - debug: msg="the path exist and is a directory"
+      when: p.stat.isdir is defined and p.stat.isdir

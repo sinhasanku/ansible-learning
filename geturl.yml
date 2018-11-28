@@ -1,0 +1,9 @@
+--- #geturl module example
+- hosts: aptserver
+  user: ec2-user
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Geta and download ini file from webserver
+      get_url: url=http://ec2-54-66-189-195.ap-southeast-2.compute.amazonaws.com/mytest.ini dest=/home/ec2-user/mytest.ini mode=0440

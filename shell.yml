@@ -1,0 +1,12 @@
+--- # shell module example
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: executing a remote command
+      shell: /usr/bin/uptime >> upt.log
+      args:
+        chdir: logs/
+        creates: uptime.log

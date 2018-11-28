@@ -1,0 +1,9 @@
+--- # example for SELinux
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: changing SELinux config to permissive
+      selinux: policy=targeted state=permissive

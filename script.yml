@@ -1,0 +1,8 @@
+--- # script module example
+- hosts: all
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - script: /home/ec2-user/need_dir.sh 

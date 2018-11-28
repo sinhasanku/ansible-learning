@@ -1,0 +1,9 @@
+--- # filesystem module example
+- hosts: appserver
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: format the remote data partition
+      filesystem: fstype=ext3 dev=/dev/xvdf1 opts="-cc"

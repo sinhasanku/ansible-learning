@@ -1,0 +1,10 @@
+--- # DNF module example
+- hosts: appserver
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install apache with DNF module
+      dnf: name=httpd state=latest
+      

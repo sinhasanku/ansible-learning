@@ -1,0 +1,15 @@
+--- # startapp example
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install telnet
+      yum: pkg=telnet state=latest
+    - name: Install lynx
+      yum: pkg=lynx state=latest
+    - name: List Home
+      command: ls -al /home/ec2-user/ 
+      register: result
+    - debug: var=result

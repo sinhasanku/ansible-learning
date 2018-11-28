@@ -1,0 +1,9 @@
+---  # yum module example
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Installl Apache Web Server
+      action: yum name=* state=latest

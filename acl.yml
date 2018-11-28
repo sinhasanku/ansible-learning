@@ -1,0 +1,11 @@
+--- # ACL MODULE EXAMPLE
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Get the ACL info on /etc/test.acl.txt remote file
+      acl: name=/etc/test.acl.txt entity=ec2-user etype=user permissions="rw" state=present
+      register: aclinfo
+    - debug: msg={{aclinfo}}

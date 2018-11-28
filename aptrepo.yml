@@ -1,0 +1,13 @@
+--- # aptrepo to add repository sample
+- hosts: aptserver
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install dependency required for apt_repository
+      apt: pkg=python-apt state=latest
+    - name: Add the key
+      apt_key: url=https://dl.google.com/linux/linux_signing_key.pub state=present
+    - name: Add google repo for ubuntu
+      apt_repository: repo='deb http://dl.google.com/linux/deb/ stable main non-free' state=present

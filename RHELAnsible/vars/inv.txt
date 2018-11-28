@@ -1,0 +1,2 @@
+['ubuntu-server.myansible.com', 'server2.myansible.com', 'localhost', 'server1.myansible.com']
+ubuntu-server.myansible.com server2.myansible.com localhost server1.myansible.com

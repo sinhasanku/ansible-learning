@@ -1,0 +1,9 @@
+--- # variable from command line
+- hosts: apacheweb
+  user: "{{ user }}"
+  conncetion: ssh
+  become: true
+  gather_facts: no
+  tasks:
+    - name: Install the telnet client
+      yum: pkg= {{pkg}} state=latest

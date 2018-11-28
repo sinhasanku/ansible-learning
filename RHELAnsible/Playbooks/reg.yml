@@ -1,0 +1,15 @@
+---
+- hosts: apacheweb
+  become: yes
+  tasks:
+    - name: Create file
+      file:
+        path: /tmp/newfile
+        state: touch
+      register: var
+    - debug:
+        msg: "register ouput is {{var}}"
+    - name: Edit file
+      lineinfile:
+        path: /tmp/newfile
+        line: "{{var}}"

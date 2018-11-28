@@ -1,0 +1,9 @@
+--- # apache2 module
+- hosts: aptserver
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Disable the alias module in Apache2
+      apache2_module: state=absent name=alias

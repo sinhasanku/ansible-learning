@@ -1,0 +1,3 @@
+vars:
+  control_server: control.myansible.com
+

@@ -1,0 +1,11 @@
+--- # delegate to function demo
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  tasks:
+    - name: Run a remote ping on the application serevre
+      command: ping -c 4 control.myansible.com > /home/ec2-user/Playbook/ping.out 
+      delegate_to: 127.0.0.1
+    - name: Install a package
+      yum: pkg=curl state=latest

@@ -1,0 +1,13 @@
+--- # sample pause
+- hosts: apacheweb
+  become: true
+  gather_facts: no
+  connection: ssh
+  tasks:
+    - name: Install HTTPD
+      action: yum name=httpd state=installed
+    - name: Pausing
+      pause:
+        seconds: 3
+    - name: Verify lynx installation
+      action: yum name=lynx state=present

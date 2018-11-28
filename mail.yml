@@ -1,0 +1,14 @@
+--- # mail module sample
+- hosts: aptserver
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: yes
+  tasks: 
+    - name: send an email to test user indicating a build completion
+      mail:
+        host='localhost'
+        port=25
+        to="ec2-user"
+        subject="Our host is finished deployment"
+        body="System called {{ansible_hostname}} has been successfully setup"

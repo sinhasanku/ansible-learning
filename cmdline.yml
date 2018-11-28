@@ -1,0 +1,8 @@
+---
+- hosts: '{{hosts}}'
+  user: '{{user}}'
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install telnet
+      yum: pkg=telnet state=latest

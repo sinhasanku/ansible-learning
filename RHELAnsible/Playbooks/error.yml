@@ -1,0 +1,12 @@
+---
+- hosts: apacheweb
+  tasks:
+    - name: get files
+      get_url:
+        url: "http://{{item}}/index.html"
+        dest: "/tmp/{{item}}"
+      ignore_errors: yes
+      with_items:
+        - server1.myansible.com
+        - server2.myansible.com
+        - server3.myansible.com

@@ -1,0 +1,9 @@
+--- # mount module sample
+- hosts: appserver
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: mount remote data partition
+      mount: name=/mnt/data src=/dev/xvdf1 fstype=ext3 opts=rw state=mounted

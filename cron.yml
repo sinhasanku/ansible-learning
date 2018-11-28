@@ -1,0 +1,7 @@
+--- # cron example
+- hosts: apacheweb
+  user: ec2-user
+  connection: ssh
+  tasks:
+    - name: Add a cron job to the test user
+      cron: name="list files" state=absent

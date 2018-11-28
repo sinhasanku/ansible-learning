@@ -1,0 +1,12 @@
+--- # samle service module
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  tasks:
+    - name: Install web server
+      action: yum name=httpd state=installed
+    - name: Start web server
+      service: name=httpd state=started
+    - name: enable httpd after reboot
+      service: name=httpd enabled=yes

@@ -1,0 +1,21 @@
+--- # samle service module
+- hosts: apacheweb
+  become: true
+  tasks:
+    - name: Install apache
+      yum:
+        name: httpd
+        state: latest
+      notify: "restart_apache"
+    - name: Edit index
+      lineinfile:
+        path: /var/www/html/index.html
+        line: "I am back"
+      when:
+        - ansible_os_family == "RedHat"
+  handlers:
+    - name: Restart HTTPD
+      service:
+        name: httpd
+        state: restarted
+      listen: "restart_apache"

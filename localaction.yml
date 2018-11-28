@@ -1,0 +1,12 @@
+--- # local action demo
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  tasks:
+    - name: Ping application server before we run install
+      local_action: command ping -c 4 server3.myansible.com
+      register: result
+    - debug: var=result
+    - name: Install lynx on remote server
+      yum: pkg=httpd state=latest

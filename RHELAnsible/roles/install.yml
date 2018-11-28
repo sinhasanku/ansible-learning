@@ -1,0 +1,8 @@
+---
+- hosts: apacheweb
+  become: yes
+  roles:
+    - apache
+  vars:
+   apache_server_admin: sanku@example.com
+

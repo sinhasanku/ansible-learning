@@ -1,0 +1,14 @@
+--- # SetFact module
+- hosts: apacheweb
+  user: ec2-user
+  connection: ssh
+  become: true
+  gather_facts: no
+  vars:
+    playbook_version: 2
+  tasks:
+    - name: Local variable display
+      set_fact: 
+        singlefact: SOMETHING
+    - debug: msg={{playbook_version}}
+    - debug: msg={{singlefact}}

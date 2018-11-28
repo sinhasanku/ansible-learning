@@ -1,0 +1,12 @@
+---
+- hosts: apacheweb, aptserver
+  connection: ssh
+  user: ec2-user
+  become: true
+  vars: 
+    userName: sanku
+    userPassword: sankusinha
+    connectioType: SFTP
+  tasks: 
+    - name: Install the config file for the system
+      template: 

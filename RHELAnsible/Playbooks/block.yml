@@ -1,0 +1,13 @@
+---
+- hosts: apacheweb
+  become: true
+  tasks:
+    - name: get file
+      block:
+        - get_url:
+            url: "http://server1.myansible.com/index.html"
+            dest: "/tmp/index_file"
+      rescue:
+        - debug: msg="File doesn't exist!"
+      always: 
+        - debug: msg="Play done!"

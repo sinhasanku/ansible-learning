@@ -1,0 +1,9 @@
+--- #AT MODULE EXAMPLE
+- hosts: apacheweb
+  user: ec2-user
+  connection: ssh
+  gather_facts: no
+  become: true
+  tasks:
+    - name: Example of a future command with at module
+      at: command="ls -al /var/log > /home/ec2-user/log_file.list" count=5 units="minutes"

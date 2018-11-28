@@ -1,0 +1,12 @@
+--- # error handling
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Execute a false command
+      command: /bin/false
+      ignore_errors: yes
+    - name: Install telnet package
+      yum: pkg=telnet state=latest

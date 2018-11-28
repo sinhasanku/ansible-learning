@@ -1,0 +1,10 @@
+--- # group module example
+- hosts: apacheweb
+  user: ec2-user
+  become: true
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Add a new group called newgroup
+      group: name=newgroup state=absent
+
